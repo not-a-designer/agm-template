@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <agm-map 
+    clickableIcons="false"
+    [latitude]="defaultPosition.lat" 
+    [longitude]="defaultPosition.lng" 
+    [zoom]="zoom">
+    <agm-marker 
+      [latitude]="defaultPosition.lat" 
+      [longitude]="defaultPosition.lng"></agm-marker>
+    <agm-marker 
+      *ngFor="let position of positions; let i = index" 
+      (markerClick)="showInfo(position, i)"
+      [latitude]="position.lat" 
+      [longitude]="position.lng">
+      <agm-info-window 
+        [isOpen]="isWindowOpened(i)" 
+        [latitude]="position.lat" 
+        [longitude]="position.lng">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Info Window</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </agm-info-window>
+    </agm-marker>
+    
+  </agm-map>
+
+</ion-content>

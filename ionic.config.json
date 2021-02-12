@@ -1,0 +1,7 @@
+{
+  "name": "agmtest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
